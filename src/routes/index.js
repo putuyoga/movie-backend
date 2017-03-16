@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const movieController = require('../controllers/movieController');
 const movieResponseObj = require('../models/movieResponse');
-const movieDtlResponseObj = require('../models/movieDtlResponse');
+const movieDetailResponseObj = require('../models/movieDtlResponse');
 
 const configureRoutes = () => {
 
@@ -39,7 +39,7 @@ const configureRoutes = () => {
                         responses: {
                             '200': {
                                 'description': 'Success',
-                                'schema': movieDtlResponseObj.label('Movie Detail')
+                                'schema': movieDetailResponseObj.label('Movie Detail')
                             },
                             '400': {'description': 'Bad Request'},
                             '404': {'description': 'Not found'}
