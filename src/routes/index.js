@@ -1,4 +1,5 @@
-const Joi = require('joi');
+let Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 const movieController = require('../controllers/movieController');
 const movieResponseObj = require('../models/movieResponse');
@@ -42,7 +43,7 @@ const configureRoutes = () => {
                 tags: ['api', 'movies'],
                 validate: {
                     params: {
-                        id: Joi.string().guid().required()
+                        id: Joi.objectId()
                     }
                 },
                 plugins: {

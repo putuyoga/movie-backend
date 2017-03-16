@@ -1,7 +1,8 @@
-const Joi = require('joi');
+let Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 const movieResponseObj =  Joi.object({
-    id: Joi.string().guid(),
+    id: Joi.objectId(),
     name: Joi.string(),
     year: Joi.number()
 });

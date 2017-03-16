@@ -6,6 +6,9 @@ const getMovies = (page) => Movie.find()
                             .skip((page-1)*repoConstant.numberOfRowPerPage)
                             .limit(repoConstant.numberOfRowPerPage);
 
+const getMovie = (movieId) => Movie.findById(movieId);
+
 module.exports = {
-    getMovies
+    getMovies,
+    getMovie
 }
