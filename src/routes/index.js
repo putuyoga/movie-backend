@@ -14,6 +14,11 @@ const configureRoutes = () => {
                 handler: (request, reply) => movieController.getMovies,
                 description: 'Get all movies',
                 tags: ['api', 'movies'],
+                validate: {
+                    query: {
+                        page: Joi.number()
+                    }
+                },
                 plugins: {
                     'hapi-swagger': {
                         responses: {
@@ -34,6 +39,11 @@ const configureRoutes = () => {
                 handler: (request, reply) => movieController.getMovieDtl,
                 description: 'Get movie detail information',
                 tags: ['api', 'movies'],
+                validate: {
+                    params: {
+                        id: Joi.string().guid().required()
+                    }
+                },
                 plugins: {
                     'hapi-swagger': {
                         responses: {
