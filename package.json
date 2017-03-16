@@ -1,0 +1,28 @@
+{
+  "name": "movie-backend",
+  "version": "0.0.1",
+  "description": "movie APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w ./ app.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://BAOTRAN1990:coco1905@github.com/putuyoga/movie-backend.git"
+  },
+  "author": "BAO TRAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/putuyoga/movie-backend/issues"
+  },
+  "homepage": "https://github.com/putuyoga/movie-backend#readme",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "hapi-swagger": "^7.7.0",
+    "inert": "^4.1.0",
+    "joi": "^10.2.2",
+    "mongoose": "^4.9.0",
+    "vision": "^4.1.1"
+  }
+}
