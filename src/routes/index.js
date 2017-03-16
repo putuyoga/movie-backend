@@ -11,7 +11,7 @@ const configureRoutes = () => {
             method: 'GET',
             path: '/movies',
             config: {
-                handler: (request, reply) => movieController.getMovies,
+                handler: movieController.getMovies,
                 description: 'Get all movies',
                 tags: ['api', 'movies'],
                 validate: {
@@ -26,7 +26,8 @@ const configureRoutes = () => {
                                 'description': 'Success',
                                 'schema': Joi.array().items(movieResponseObj).label('List Movie')
                             },
-                            '400': {'description': 'Bad Request'}
+                            '400': {'description': 'Bad Request'},
+                            '500': {'description': 'Internal Server Error'}
                         }
                     }
                 }
@@ -36,7 +37,7 @@ const configureRoutes = () => {
             method: 'GET',
             path: '/movies/{id}',
             config: {
-                handler: (request, reply) => movieController.getMovieDtl,
+                handler: movieController.getMovieDtl,
                 description: 'Get movie detail information',
                 tags: ['api', 'movies'],
                 validate: {

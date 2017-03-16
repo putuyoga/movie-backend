@@ -10,7 +10,8 @@ var MovieSchema = mongoose.Schema({
         genre           : [],
         rating          : Number,
         vote            : Number
-    }
+    },
+    createdDate         : { type: Date, default: Date.now }
 });
 
 var Movie = mongoose.model('Movie', MovieSchema);

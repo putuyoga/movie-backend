@@ -1,6 +1,13 @@
+const movieRepositoryObj = require('../repositories/movieRepo');
+const movieService = require('../services/movieService');
+const Boom = require('Boom');
+
 const getMovies = (request, reply) => {
-    let movieList = [];
-    reply(movieList);
+    const page = request.query.page ? request.query.page : 1;
+    
+    movieService.getMovies(page, movieRepositoryObj.getMovies)
+    .then(movies => reply(movies))
+    .catch(error => reply(Boom.badImplementation('Failed to get contacts', error)));
 }
 
 const getMovieDtl = (request, reply) => {

@@ -16,9 +16,6 @@ server.connection({
     port: port
 });
 
-const routes = configureRoutes();
-server.route(routes);
-
 const options = {
     info: {
         'title': 'Movie API Documentation',
@@ -33,11 +30,17 @@ server.register([
         'register': HapiSwagger,
         'options': options
     }], (err) => {
-        server.start((err) => {
-            if (err) {
-                throw err;
-            } else {
-                console.log(`Server running at ${hostname}:${port}`);
-            }
-        });
+        if(err){
+            server.error(`Something went wrong, can't start server.`);
+        } else {
+            const routes = configureRoutes();
+            server.route(routes);
+            server.start((err) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log(`Server running at ${hostname}:${port}`);
+                }
+            });
+        }
     });
