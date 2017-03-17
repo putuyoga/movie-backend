@@ -8,7 +8,7 @@ const getMovies = (request, reply) => {
 
     const page = request.query.page ? request.query.page : 1;
     
-    movieService.getMovies(page, movieRepositoryObj.getMovies)
+    return movieService.getMovies(page, movieRepositoryObj.getMovies)
     .then(movies => {
         console.log('Reponse payload:', movies);
         return reply(movies);
