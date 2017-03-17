@@ -59,6 +59,13 @@ const configureRoutes = () => {
                     }
                 }
             }
+        },
+        {
+            method: 'GET',
+            path: '/movies/{id}/image',
+            handler: function (request, reply) {
+                reply.file(`./src/public/images/${request.params.id}.jpeg`);
+            }
         }
     ]
 };
